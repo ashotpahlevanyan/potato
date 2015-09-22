@@ -20,143 +20,42 @@
 	color : $colorPink;
 }
 
-
-textarea, input {
-	font-size: 22px;
-}
-.questionList {
-	li {
-		margin-bottom: 20px;
-		@include border-radius(5px);
-		border: 1px solid $colorMiddleBlue;
-		form {
-			padding: 20px;
-		}
-	}
-}
-.questionTitle {
-	font-size: 30px;
-	@extend %fontColorPink;
-	padding: 10px 15px;
-	margin-bottom: 25px;
-	background-color: $colorMiddleBlue;
-	@include border-radius(5px);
-}
-.radio, .checkbox {
-	padding: 20px;
-	.option {
+.titleContainer {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	.itemTitle {
 		display: block;
-		font-size: 24px;
-		color: $colorDarkBlue;
-		input {
-			font-size: 24px;
-			margin-top: 12px;
-			background-color: #eee;
-			color: $colorDarkBlue;
-		}
+		font-size: 30px;
 	}
 }
-.radioImages {
-	@extend %textAlignCenter;
-	.item {
-		display: inline-block;
-		margin-right: 20px;
-		margin-bottom: 20px;
-		@extend %verticalAlignTop;
-		@extend %textAlignCenter;
-		.imageContainer {
-			position: relative;
-			height: auto;
-			font-size: 0;
-			.messageContainer {
-				//display: none;
-				@extend %textAlignCenter;
-				@include border-radius(50%);
-				background-color: #ccc;
-				position: absolute;
-				top: 0;
-				left: 0;
-				bottom: 0;
-				right: 0;
-				padding: 30% 10px;
-				opacity: 0;
-				-webkit-transform: scale(0);
-				-moz-transform: scale(0);
-				-ms-transform: scale(0);
-				-o-transform: scale(0);
-				transform: scale(0);
-				-webkit-transition: all 0.35s ease-in-out;
-				-moz-transition: all 0.35s ease-in-out;
-				transition: all 0.35s ease-in-out;
-				.message {
-					font-size: 25px;
-				}
-			}
-			&:hover {
-				.messageContainer {
-					display: inline-block;
-					opacity: 1;
-					-webkit-transform: scale(1);
-					-moz-transform: scale(1);
-					-ms-transform: scale(1);
-					-o-transform: scale(1);
-					transform: scale(1);
-				}
-			}
+.itemsList {
+	list-style: none;
+	height: 400px;
+	overflow-y: scroll;
+	overflow-x: none;
+	.listItem {
+		&:first-child {
+			border-top: 1px solid #ccc 
 		}
-		.optionTitle {
-			margin-top: 15px;
-			font-size: 16px;
-			width: 150px;
+		display: block;
+		border-bottom: 1px solid #ccc;
+		border-left: 1px solid #ccc;
+		border-right: 1px solid #ccc;
+		padding: 10px;
+		.itemImage {
 			display: block;
-			color: rgb(158, 234, 37);
+			height: auto;
+			img {
+				display: block;
+				height: auto;
+				width: 100px;
+			}
 		}
-
-	}
-}
-
-.radioGrades {
-	@extend %textAlignCenter;
-	.item {
-		@include border-radius(3px);
-		@extend %textAlignCenter;
-		padding: 7px 7px;
-		width: 50px;
-		display: inline-block;
-		font-size: 22px;
-		background-color: #ccc;
-		color: white;
-		margin-right: 20px;
-		margin-bottom: 20px;
-		border: 2px solid transparent;
-		&:hover {
-			@extend %textDecorNone;
-			opacity: 0.7;
-		}
-		&.selected {
-			background-color: green !important;
-			border: 2px solid red;
-		}
-		&.levelOne {
-			background-color: red;
-		}
-		&.levelTwo {
-			background-color: purple;
-		}
-		&.levelThree {
-			background-color: orange;
-		}
-		&.levelFour {
-			background-color: #0CED41;
-		}
-		&.levelFive {
-			background-color: blue;
+		.itemInfo {
+			display: inline-block;
+			vertical-align: middle;
 		}
 	}
-}
-
-.navigationButtons {
-	margin-top: 20px;
 }
 
 

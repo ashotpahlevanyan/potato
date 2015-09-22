@@ -1,14 +1,17 @@
-<div data-ng-controller="ListController" class="container" ng-cloak>
-	<a href="#">aldfjglkadjf</a>
-	<ul class="list-unstyled row itemList">
-		<li ng-repeat="item in items" ng-class-odd="'bgWhite'" ng-class-even="'bgPurple'">
-			<div class="col-sm-2">
-				<a href="https://www.flickr.com/photos/jenniranee/20990166314/" class="">
-					<img src="https://www.flickr.com/photos/jenniranee/20990166314/" alt="img">	
-				</a>
-			</div>
-			<div class="col-sm-10">
-				<a href="" ng-href="/detail" class="itemTitle">{{item.title}}</a>			
+<div data-ng-controller="ListController"  ng-cloak>
+	<ul class="itemsList container">
+		<li ng-repeat="item in items" class="listItem row">
+			<a href="" ng-href="{{item.link}}" class="col-sm-2 col-xs-4 itemImage">
+				<img src="" ng-src="{{item.media.m}}" alt="img">	
+			</a>
+			<div class="col-sm-10 col-xs-8 itemInfo">
+				<p class="titleContainer"><a href="" ng-href="/detail" class="itemTitle">{{item.title}}</a></p>
+				<div class="clearfix">
+					<span class=""><label>Published on:&nbsp;</label>{{item.published}}</span>
+					<span class="pull-left"><label>Author:&nbsp;</label><a href="" ng-href="https://www.flickr.com/photos/{{item.author_id}}">{{item.author}}</a></span>
+					<a href="" ng-href="{{item.link}}">View In Flickr</a>
+				</div>
+				
 			</div>
 		</li>
 	</ul>
