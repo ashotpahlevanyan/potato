@@ -1,0 +1,44 @@
+/*===========================================
+
+	baseElement.scss
+	* css style for base Elements
+
+=============================================*/
+
+*,
+*:before,
+*:after {
+	@extend %boxSizingBorderBox;
+}
+
+*, *:focus {
+	outline: none;
+}
+
+body {
+	position: relative;
+	font-family: "Open Sans";
+	font-size: 14px;
+	background-color: #fff;
+	overflow-x: hidden;
+	.container {
+		margin: 0 auto;
+	}
+	&.withSubmenu {
+		padding-top: 130px;
+	}
+}
+
+html {
+	overflow-y: scroll;
+}
+
+.clearfix:before,
+.clearfix:after {
+	display: table;
+	content: " ";
+}
+.clearfix:after {
+	clear: both;
+}
+
