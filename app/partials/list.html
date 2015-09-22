@@ -1,0 +1,15 @@
+<div data-ng-controller="ListController" class="container" ng-cloak>
+	<a href="#">aldfjglkadjf</a>
+	<ul class="list-unstyled row itemList">
+		<li ng-repeat="item in items" ng-class-odd="'bgWhite'" ng-class-even="'bgPurple'">
+			<div class="col-sm-2">
+				<a href="https://www.flickr.com/photos/jenniranee/20990166314/" class="">
+					<img src="https://www.flickr.com/photos/jenniranee/20990166314/" alt="img">	
+				</a>
+			</div>
+			<div class="col-sm-10">
+				<a href="" ng-href="/detail" class="itemTitle">{{item.title}}</a>			
+			</div>
+		</li>
+	</ul>
+</div>

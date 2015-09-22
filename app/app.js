@@ -1,28 +1,18 @@
- app = angular.module('surveyApp', ['ngRoute']);
+ app = angular.module('potatoApp', ['ngRoute']);
 
 
 //This configures the routes and associates each route with a view and a controller
 app.config(function ($routeProvider) {
     $routeProvider
-        .when('/questions',
+        .when('/list',
             {
-                controller: 'QuestionsController',
-                templateUrl: '/app/partials/questions.html'
+                controller: 'ListController',
+                templateUrl: '/app/partials/list.html'
             })
-        .when('/questionnaire',
+        .when('/detail',
             {
-                controller: 'QuestionnaireController',
-                templateUrl: '/app/partials/questionnaire.html'
+                controller: 'DetailController',
+                templateUrl: '/app/partials/detail.html'
             })
-        .when('/preview',
-            {
-                controller: 'PreviewController',
-                templateUrl: '/app/partials/preview.html'
-            })
-        .when('/phones',
-            {
-                controller: 'PhoneListCtrl',
-                templateUrl: '/app/partials/phones.html'
-            })
-        .otherwise({ redirectTo: '/' });
+        .otherwise({ redirectTo: '/list' });
 });
