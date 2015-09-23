@@ -20,13 +20,16 @@
 	color : $colorPink;
 }
 
-.titleContainer {
+.itemContent {
+	margin-top: 20px;
+}
+.itemTitle {
+	display: block;
+	font-size: 30px;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	.itemTitle {
-		display: block;
-		font-size: 30px;
-	}
+	white-space: nowrap;
+	margin-bottom: 5px;
 }
 .itemsList {
 	list-style: none;
@@ -54,6 +57,15 @@
 		.itemInfo {
 			display: inline-block;
 			vertical-align: middle;
+			.author {
+				margin-right: 10px;
+			}
+			.publicationDate {
+				margin-right: 10px;
+			}
+			.viewFlickr {
+
+			}
 		}
 	}
 }

@@ -10458,13 +10458,17 @@ html {
   background-color: #B70CF0;
 }
 
-.titleContainer {
-  overflow: hidden;
-  text-overflow: ellipsis;
+.itemContent {
+  margin-top: 20px;
 }
-.titleContainer .itemTitle {
+
+.itemTitle {
   display: block;
   font-size: 30px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-bottom: 5px;
 }
 
 .itemsList {
@@ -10495,6 +10499,12 @@ html {
 .itemsList .listItem .itemInfo {
   display: inline-block;
   vertical-align: middle;
+}
+.itemsList .listItem .itemInfo .author {
+  margin-right: 10px;
+}
+.itemsList .listItem .itemInfo .publicationDate {
+  margin-right: 10px;
 }
 
 /* Style for footer ==============================
