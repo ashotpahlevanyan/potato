@@ -1,4 +1,29 @@
-<div data-ng-controller="DetailController">
-	<h3>Preview</h3>
-	<a href="#" class="fa fa-linux">{{val}}</a>
+<div data-ng-controller="ImageDetailController" class="container">
+	<div class="itemHeading clearfix">
+		<div class="left pull-left">
+			<a href="" ng-href="{{item.link}}" class="itemTitle">{{item.title}}</a>
+			<span class="author"><a href="" ng-href="https://www.flickr.com/photos/{{item.author_id}}">{{item.author}}</a></span><span>&nbsp;|&nbsp;</span>
+			<span class="publicationDate"><label>Published:&nbsp;</label><span >{{convertDate(item.published)}}</span></span>
+		</div>
+		<div class="pull-right">
+			<a class="btn btn-primary" href="" ng-href="#/list">Back</a>
+		</div>
+	</div>
+	<div class="itemContent row">
+		<div class="imageContainer col-sm-3">
+			<img src="" ng-src="{{item.media.m}}" alt="img">
+		</div>
+		<div class="imageDescription col-sm-9">
+			<div class="description">{{item.description}}</div>
+			<div class="tags">
+				<span>Tags</span>
+				<ul class="list-inline">
+					<li ng-repeat="tag in item.tagsList">
+						<a href="" ng-href="https://www.flickr.com/tags/{{tag}}">{{tag}}</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
 </div>
