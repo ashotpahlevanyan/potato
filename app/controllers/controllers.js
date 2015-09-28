@@ -1,23 +1,35 @@
 
-app.controller('ImageListController',['$scope', '$rootScope', '$moment', '$http', function($scope, $rootScope, $moment, $http){
-    jsonFlickrFeed = function(data){
-    	angular.callbacks._0(data);
-    }
-    $http.jsonp("https://api.flickr.com/services/feeds/photos_public.gne?tags=potato&tagmode=all&format=json&callback=JSON_CALLBACK")
-    	.success(function(data){
-    		$scope.data = data;
-    		$scope.items = $scope.data.items;
-    		giveIdsToItems();
-        	console.log($scope.data);
-    });
-    var giveIdsToItems = function() {
-    	for(i = 0; i < $scope.items.length; i++) {
-    		$scope.items[i].id = i;
-    		$scope.items[i].tagsList = $scope.items[i].tags.split(" ");
-    	}
-    	$rootScope.items = $scope.items;
-    }
+app.controller('ImageListController',['$scope', '$rootScope', '$moment', '$http', 'GetDataService', function($scope, $rootScope, $moment, $http, GetDataService){
+    // jsonFlickrFeed = function(data){
+    // 	angular.callbacks._0(data);
+    // }
+    // $http.jsonp("https://api.flickr.com/services/feeds/photos_public.gne?tags=potato&tagmode=all&format=json&callback=JSON_CALLBACK")
+    // 	.success(function(data){
+    // 		$scope.data = data;
+    // 		$scope.items = $scope.data.items;
+    // 		giveIdsToItems();
+    //     	console.log($scope.data);
+    // });
+    // var giveIdsToItems = function() {
+    // 	for(i = 0; i < $scope.items.length; i++) {
+    // 		$scope.items[i].id = i;
+    // 		$scope.items[i].tagsList = $scope.items[i].tags.split(" ");
+    // 	}
+    // 	$rootScope.items = $scope.items;
+    // }
+    function init(){
+    	GetDataService.getItems().then(function(response){
+			$scope.items = response.data.items;
+			console.log($scope.items);
+		});
+	}
+	init();
 
+    // getDataFromService = function() {
+    // 	$scope.data = GetDataService.getItems();
+    // 	//console.log($scope.data);
+    // }
+    // getDataFromService();
  //    $http.ajax({
 	// 	method: 'GET',
 	// 	url: "https://api.flickr.com/services/feeds/photos_public.gne?tags=potato&tagmode=all&format=json&callback=?",
@@ -275,16 +287,24 @@ app.controller('ImageListController',['$scope', '$rootScope', '$moment', '$http'
 	}
 }]);
 
-app.controller('ImageDetailController', ['$scope', '$rootScope','$routeParams', '$moment',
-  function($scope, $rootScope, $routeParams, $moment) {
+app.controller('ImageDetailController', ['$scope', '$routeParams', '$moment', 'GetDataService',
+  function($scope, $routeParams, $moment, GetDataService) {
     $scope.itemID = $routeParams.itemID;
 
-    for(i = 0; i < $rootScope.items.length; i++) {
-    	if($rootScope.items[i].id == $scope.itemID) {
-    		$scope.item = $rootScope.items[i];
+    function init(){
+    	GetDataService.getItems().then(function(response){
+			$scope.items = response.data.items;
+			//console.log($scope.items);
+			for(i = 0; i < $scope.items.length; i++) {
+    		if($scope.items[i].id == $scope.itemID) {
+    		$scope.item = $scope.items[i];
     		break;
     	}
     }
+		});
+	}
+	init();
+    
     $scope.goBack = function() {
     	window.history.back();
     }

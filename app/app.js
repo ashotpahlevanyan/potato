@@ -1,4 +1,6 @@
-app = angular.module('potatoApp', ['ngRoute', 'angular-momentjs']);
+var app = angular.module('potatoApp', ['ngRoute', 'ngResource', 'angular-momentjs']);
+
+
 
 app.config(function ($momentProvider){
     $momentProvider
@@ -28,3 +30,4 @@ app.config(function ($routeProvider) {
             })
         .otherwise({ redirectTo: '/list' });
 });
+
