@@ -1,4 +1,4 @@
-app = angular.module('potatoApp', ['ngRoute', 'angular-momentjs']);
+var app = angular.module('potatoApp', ['ui.router', 'ngResource', 'angular-momentjs']);
 
 app.config(function ($momentProvider){
     $momentProvider
@@ -6,25 +6,21 @@ app.config(function ($momentProvider){
       .scriptUrl('//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js');
   });
 
-app.config(function($httpProvider) {
-    //Enable cross domain calls
-    $httpProvider.defaults.useXDomain = true;
-    $httpProvider.defaults.withCredentials = true;
-    //$httpProvider.defaults.Access-Control-Allow-Credentials = true;
-});
-
 //This configures the routes and associates each route with a view and a controller
-app.config(function ($routeProvider) {
-    $routeProvider
-        .when('/list',
+app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.otherwise('/list')
+    $stateProvider
+        .state('list',
             {
-                controller: 'ImageListController',
-                templateUrl: '/app/partials/list.html'
+                url: '/list',
+                templateUrl: '/app/partials/list.html',
+                controller: 'ImageListController'
             })
-        .when('/detail/:itemID',
+        .state('detail',
             {
-                controller: 'ImageDetailController',
-                templateUrl: '/app/partials/detail.html'
-            })
-        .otherwise({ redirectTo: '/list' });
-});
+                url: '/detail/:id',
+                templateUrl: '/app/partials/detail.html',
+                controller: 'ImageDetailController'
+            });
+}]);
+
