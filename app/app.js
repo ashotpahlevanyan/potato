@@ -1,4 +1,4 @@
-var app = angular.module('potatoApp', ['ngRoute', 'ngResource', 'angular-momentjs']);
+var app = angular.module('potatoApp', ['ui.router', 'ngResource', 'angular-momentjs']);
 
 app.config(function ($momentProvider){
     $momentProvider
@@ -7,18 +7,20 @@ app.config(function ($momentProvider){
   });
 
 //This configures the routes and associates each route with a view and a controller
-app.config(function ($routeProvider) {
-    $routeProvider
-        .when('/list',
+app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.otherwise('/list')
+    $stateProvider
+        .state('list',
             {
-                controller: 'ImageListController',
-                templateUrl: '/app/partials/list.html'
+                url: '/list',
+                templateUrl: '/app/partials/list.html',
+                controller: 'ImageListController'
             })
-        .when('/detail/:itemID',
+        .state('detail',
             {
-                controller: 'ImageDetailController',
-                templateUrl: '/app/partials/detail.html'
-            })
-        .otherwise({ redirectTo: '/list' });
-});
+                url: '/detail/:id',
+                templateUrl: '/app/partials/detail.html',
+                controller: 'ImageDetailController'
+            });
+}]);
 

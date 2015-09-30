@@ -1,10 +1,15 @@
 
 app.controller('ImageListController',['$scope', '$moment', '$http', 'GetDataService', function($scope, $moment, $http, GetDataService){
     
-   	function init(){
+   	
+    //$scope.items = GetDataService.getItems();
+
+    //console.log($scope.items);
+
+    function init(){
     	GetDataService.getItems().then(function(response){
 			$scope.items = response.data.items;
-			console.log($scope.items);
+			//console.log($scope.items);
 		});
 	}
 	init();
@@ -19,29 +24,12 @@ app.controller('ImageListController',['$scope', '$moment', '$http', 'GetDataServ
 	$scope.gotoDetails = function(item) {
 		
 	}
+
 }]);
 
-app.controller('ImageDetailController', ['$scope', '$routeParams', '$moment', '$http', 'GetDataService',
-  function($scope, $routeParams, $moment, $http, GetDataService) {
-    
-    function init(){
-    	GetDataService.getItems().then(function(response){
-			$scope.items = response.data.items;
-			$scope.itemID = $routeParams.itemID;
-			$scope.initItem();
-			console.log($scope.items);
-		});
-	}
-	init();
-
-    $scope.initItem = function() {
-    	for(i = 0; i < $scope.items.length; i++) {
-    		if($scope.items[i].id == $scope.itemID) {
-    			$scope.item = $scope.items[i];
-    			break;
-    		}
-    	}
-    }
+app.controller('ImageDetailController', ['$scope', '$stateParams', '$moment', 'GetDataService',
+  function($scope, $stateParams, $moment, GetDataService) {
+    $scope.item = GetDataService.find($stateParams.id);
     
     $scope.goBack = function() {
     	window.history.back();
