@@ -10228,7 +10228,7 @@ html {
   color: #B70CF0;
 }
 
-.navbar-nav li a, #testScroll {
+#testScroll {
   color: #fff;
 }
 
@@ -10240,11 +10240,11 @@ html {
   color: #606060;
 }
 
-.navbar-header .navbar-toggle:hover, .submenuWrapper, .submenuWrapper .submenu li a, .bgWhite {
+.submenuWrapper, .submenuWrapper .submenu li a, .bgWhite {
   background-color: #fff;
 }
 
-.topBar, .bgBlue, #testScroll:hover {
+.bgBlue, #testScroll:hover {
   background-color: #B70CF0;
 }
 
@@ -10269,7 +10269,7 @@ html {
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
 }
 
-.navbar-nav li a:active, .navbar-nav li a:hover, .navbar-nav li a:focus, .submenuWrapper .submenu li a, .submenuWrapper .submenu li a:active {
+.submenuWrapper .submenu li a, .submenuWrapper .submenu li a:active {
   /* font weight for any text */
   font-weight: bold;
 }
@@ -10298,14 +10298,9 @@ html {
   box-sizing: border-box;
 }
 
-.navbar-nav li a, .navbar-nav li a:active, .navbar-nav li a:hover, .navbar-nav li a:focus, .navbar-header .navbar-toggle, .submenuWrapper .submenu li a:active {
+.submenuWrapper .submenu li a:active {
   /* background color transparent*/
   background-color: transparent;
-}
-
-.navbar-nav {
-  /* text align for any element*/
-  text-align: center;
 }
 
 /*==========================================*/
@@ -10321,83 +10316,6 @@ html {
 ===================================================================*/
 /* Style for navbar ==============================
 ===================================================*/
-.topBar {
-  height: 75px;
-  display: block;
-  position: fixed;
-  z-index: 99999;
-  width: 100%;
-  top: 0;
-}
-.topBar .navbar-brand {
-  display: inline-block;
-  padding: 3px 10px;
-  height: auto;
-  outline: none;
-}
-.topBar .navbar-brand img {
-  display: block;
-  padding-top: 10px;
-  height: 60px;
-  width: auto;
-}
-.topBar .navbar-brand img.logoOpen {
-  display: none;
-}
-.topBar .navbar-brand:hover img.logo {
-  display: none;
-}
-.topBar .navbar-brand:hover img.logoOpen {
-  display: block;
-}
-.topBar .navbar-collapse {
-  padding-top: 6px;
-  padding-left: 0;
-  padding-right: 0;
-}
-
-.navbar-nav li a {
-  display: inline-block;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-  border: 1px solid transparent;
-  padding: 15px 15px;
-  outline: none;
-  min-width: 75px;
-}
-.navbar-nav li a:active, .navbar-nav li a:hover, .navbar-nav li a:focus {
-  border: 1px solid #fff;
-}
-.navbar-nav li a:focus {
-  border: 1px solid #fff;
-}
-
-.navbar-header {
-  margin-right: 0;
-  margin-left: 0;
-}
-.navbar-header .navbar-toggle {
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-  border: 1px solid #fff;
-  padding: 10px;
-  margin-right: 15px;
-  margin-top: 16px;
-}
-.navbar-header .navbar-toggle .icon-bar + .icon-bar {
-  margin-top: 3px;
-}
-.navbar-header .navbar-toggle span {
-  width: 20px;
-  height: 2px;
-  background-color: #fff;
-}
-.navbar-header .navbar-toggle:hover span {
-  background-color: #B70CF0;
-}
-
 /*Style for submenu navigation =============================
 ============================================================*/
 .submenuWrapper {
@@ -10456,6 +10374,11 @@ html {
 
 .bgPurple {
   background-color: #B70CF0;
+}
+
+.pageTitle {
+  font-size: 30px;
+  padding: 10px 20px;
 }
 
 .itemContent {

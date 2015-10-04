@@ -1,9 +1,7 @@
 
 app.controller('ImageListController',['$scope', '$moment', '$http', 'GetDataService', function($scope, $moment, $http, GetDataService){
     
-   	
     //$scope.items = GetDataService.getItems();
-
     //console.log($scope.items);
 
     function init(){
