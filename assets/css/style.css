@@ -10473,7 +10473,6 @@ html {
 
 .itemsList {
   list-style: none;
-  height: 400px;
   overflow-y: scroll;
   overflow-x: none;
 }
