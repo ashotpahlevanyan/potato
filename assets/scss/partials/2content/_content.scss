@@ -1,7 +1,6 @@
 /* Style for content ==============================
 ===================================================*/
 
-
 .bgWhite {
 	background-color: white;
 }
@@ -12,6 +11,10 @@
 	background-color: $colorPurple;
 }
 
+.pageTitle {
+	font-size: 30px;
+	padding: 10px 20px;
+}
 
 %fontColorGreen {
 	color : $colorGreen;
